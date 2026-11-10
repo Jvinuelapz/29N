@@ -133,6 +133,16 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 .e29-tip b{font-weight:var(--cds-font-weight-medium);}
 .e29-tip .e29-tiprow{display:flex;align-items:center;gap:6px;white-space:nowrap;}
 .e29-tip .e29-tipsw{display:inline-block;width:9px;height:9px;border-radius:2px;flex:none;}
+
+.e29-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;position:sticky;top:0;z-index:20;background:var(--color-bg);padding:8px 0;margin:var(--cds-gap-md) 0 0;border-bottom:1px solid var(--color-border-line);}
+.e29-tab{font:inherit;font-size:var(--cds-font-size-caption);white-space:nowrap;padding:7px 12px;border:1px solid var(--color-border-line);border-radius:999px;background-color:var(--color-bg);color:var(--color-fg);cursor:pointer;flex:none;}
+.e29-tab:hover{border-color:var(--color-fg-muted);}
+.e29-tab[aria-selected=true]{background-color:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg);font-weight:var(--cds-font-weight-medium);}
+.e29-tab:focus-visible{outline:2px solid var(--color-fg-muted);outline-offset:2px;}
+.e29-panel{padding-top:var(--cds-gap-xs);}
+.e29-panel > h2:first-child{margin-top:var(--cds-gap-md);}
+.e29 details#metodologia-det{margin-top:0;}
+.e29-hidesum{display:none;}
 [data-dash-source-state=refreshing]{opacity:.5;}
 </style>
 
@@ -147,12 +157,10 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 <div class='e29-card' id='kpi-programas'><div class='e29-k'><span data-draw='sum' data-source='summary' data-field='publicados' data-row='0'>—</span> / <span data-draw='sum' data-source='summary' data-field='partidos' data-row='0'>—</span></div><div class='e29-kl'>programas 29N publicados</div></div>
 <div class='e29-card' id='kpi-fuentes'><div class='e29-k' data-draw='sum' data-source='summary' data-field='fuentes' data-row='0'>—</div><div class='e29-kl'>fuentes enlazadas</div></div>
 </div>
-<nav class='e29-nav' aria-label='Secciones'>
-<a href='#programas'>Estado de los programas</a><a href='#situacion'>Situación actual</a><a href='#contexto'>Datos de contexto</a><a href='#matriz'>Matriz</a><a href='#comparar'>Comparar</a><a href='#cobertura'>Cobertura</a><a href='#acuerdos'>Acuerdos y desacuerdos</a><a href='#fuentes'>Fuentes</a><a href='#metodologia'>Metodología</a>
-</nav>
+<div class='e29-tabs' role='tablist' aria-label='Secciones del panel'><button type='button' class='e29-tab' role='tab' id='tab-programas' data-tab='programas' aria-controls='programas' aria-selected='true' tabindex='0'>Programas</button><button type='button' class='e29-tab' role='tab' id='tab-situacion' data-tab='situacion' aria-controls='situacion' aria-selected='false' tabindex='-1'>Situación actual</button><button type='button' class='e29-tab' role='tab' id='tab-contexto' data-tab='contexto' aria-controls='contexto' aria-selected='false' tabindex='-1'>Datos de contexto</button><button type='button' class='e29-tab' role='tab' id='tab-matriz' data-tab='matriz' aria-controls='matriz' aria-selected='false' tabindex='-1'>Matriz</button><button type='button' class='e29-tab' role='tab' id='tab-comparar' data-tab='comparar' aria-controls='comparar' aria-selected='false' tabindex='-1'>Comparar</button><button type='button' class='e29-tab' role='tab' id='tab-cobertura' data-tab='cobertura' aria-controls='cobertura' aria-selected='false' tabindex='-1'>Cobertura</button><button type='button' class='e29-tab' role='tab' id='tab-acuerdos' data-tab='acuerdos' aria-controls='acuerdos' aria-selected='false' tabindex='-1'>Acuerdos y desacuerdos</button><button type='button' class='e29-tab' role='tab' id='tab-fuentes' data-tab='fuentes' aria-controls='fuentes' aria-selected='false' tabindex='-1'>Fuentes</button><button type='button' class='e29-tab' role='tab' id='tab-metodologia' data-tab='metodologia' aria-controls='metodologia' aria-selected='false' tabindex='-1'>Metodología</button></div>
 </header>
 
-<section id='programas'>
+<section id='programas' class='e29-panel' role='tabpanel' aria-labelledby='tab-programas'>
 <h2>Estado de los programas</h2>
 <p class='e29-sub'>Qué partidos han publicado ya su programa para el 29N. La ley no obliga a publicarlos en una fecha concreta.</p>
 <div class='e29-scroll'>
@@ -163,13 +171,13 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 </div>
 </section>
 
-<section id='situacion'>
+<section id='situacion' class='e29-panel' role='tabpanel' aria-labelledby='tab-situacion' hidden>
 <h2>Situación actual de cada tema</h2>
 <p class='e29-sub'>Qué está en vigor hoy, qué ha hecho el Gobierno de coalición PSOE–Sumar y algún dato de referencia, para comparar con lo que propone cada partido. Es descriptivo: no valora la gestión. Las Cortes están disueltas desde el 5 de octubre, así que las iniciativas que estaban en tramitación han quedado sin aprobar.</p>
 <div class='e29-stgrid' data-draw='status' data-source='topics'>—</div>
 </section>
 
-<section id='contexto'>
+<section id='contexto' class='e29-panel' role='tabpanel' aria-labelledby='tab-contexto' hidden>
 <h2>Datos de contexto</h2>
 <p class='e29-sub'>Estadísticas oficiales o de referencia que dan contexto a cada tema. Series largas, desde 2008 o desde el primer año disponible, sin marcar legislaturas ni gobiernos. Cada gráfico indica su fuente y la fecha de su último dato; las estimaciones se distinguen con trazo discontinuo. Pasa el dedo o el ratón por un gráfico para ver los valores.</p>
 <nav class='e29-nav e29-ctxnav' aria-label='Temas con datos de contexto'>
@@ -329,7 +337,7 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 </div>
 </section>
 
-<section id='matriz'>
+<section id='matriz' class='e29-panel' role='tabpanel' aria-labelledby='tab-matriz' hidden>
 <h2>Matriz partido × tema</h2>
 <p class='e29-sub'>La primera columna muestra la situación actual de cada tema; el resto, la posición de cada partido. Pulsa una celda para ver el detalle y sus fuentes. Los filtros atenúan las celdas que no coinciden; en la vista de lista solo aparecen las que coinciden.</p>
 <div class='e29-filters' id='filtros'>
@@ -361,7 +369,7 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 </div>
 </section>
 
-<section id='comparar'>
+<section id='comparar' class='e29-panel' role='tabpanel' aria-labelledby='tab-comparar' hidden>
 <h2>Comparar partidos</h2>
 <p class='e29-sub'>Elige un tema y entre 2 y 4 partidos para verlos lado a lado, junto a la situación actual de ese tema.</p>
 <div class='e29-filters'>
@@ -371,7 +379,7 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 <div style='margin-top:12px' data-draw='cmp' data-source='cells parties topics'>—</div>
 </section>
 
-<section id='cobertura'>
+<section id='cobertura' class='e29-panel' role='tabpanel' aria-labelledby='tab-cobertura' hidden>
 <h2>Cobertura: cuánto detalle hay documentado por partido</h2>
 <p class='e29-sub'>Número de temas (de 16) con medida concreta, orientación general o sin posición conocida. Mide cuánto ha concretado cada partido hasta hoy y cuánto recogen las fuentes, no su posición ideológica. Los partidos van en el orden fijo de la tabla, no ordenados por valor.</p>
 <div class='e29-legend'>
@@ -380,20 +388,20 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 <div class='e29-cov' data-draw='coverage' data-source='coverage'>—</div>
 </section>
 
-<section id='acuerdos'>
+<section id='acuerdos' class='e29-panel' role='tabpanel' aria-labelledby='tab-acuerdos' hidden>
 <h2>Puntos de acuerdo y desacuerdo</h2>
 <p class='e29-sub'>Resumen descriptivo por tema, elaborado a partir de las celdas de la matriz.</p>
 <div class='e29-agree' data-draw='agree' data-source='topics'>—</div>
 </section>
 
-<section id='fuentes'>
+<section id='fuentes' class='e29-panel' role='tabpanel' aria-labelledby='tab-fuentes' hidden>
 <h2>Fuentes</h2>
 <p class='e29-sub'>Todas las fuentes enlazadas en el panel. Son medios de distintas líneas editoriales, documentos de los partidos, agregadores de programas y webs institucionales.</p>
 <ol class='e29-srcs' data-draw='srcs' data-source='sources'></ol>
 </section>
 
-<details id='metodologia'>
-<summary>Metodología, limitaciones y cómo actualizarlo</summary>
+<section id='metodologia' class='e29-panel' role='tabpanel' aria-labelledby='tab-metodologia' hidden><h2>Metodología, limitaciones y cómo actualizarlo</h2><details id='metodologia-det' open>
+<summary class='e29-hidesum'>Metodología</summary>
 <p><b>Cómo se buscó.</b> Para cada partido se hicieron búsquedas separadas y se priorizaron, por este orden, el programa del 29N, los documentos oficiales o proposiciones de ley, las declaraciones de 2026 de candidatos y dirigentes y las votaciones en el Congreso entre 2023 y 2026. También se usaron resúmenes de agregadores (Tu Papeleta, DatosClaros, eleccionesEspaña, Brains RE News), que enlazan a su vez a sus fuentes originales.</p>
 <p><b>Tipos de origen.</b> Programa 29N: texto del programa de esta convocatoria. Documento oficial: documento, proposición de ley o iniciativa del partido o de su Gobierno. Declaración: palabras del candidato o de dirigentes recogidas por la prensa. Votación: sentido del voto en el Congreso. Programa anterior: programa o documento de otra convocatoria, marcado como tal y que puede no reflejar la posición actual.</p>
 <p><b>Concreción.</b> Medida concreta: propuesta específica, a menudo con cifra o plazo. Orientación general: posición sin medida detallada. Sin posición conocida: no se ha encontrado posición en las fuentes consultadas; no significa que el partido no la tenga.</p>
@@ -403,7 +411,7 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 <p><b>Datos de contexto.</b> Los gráficos de esa sección usan estadísticas oficiales o de referencia: INE (EPA, IPV, IPVA y Encuesta de Estructura Salarial), Banco de España, OTAN, Ministerio de Sanidad (SISLE), Ministerio del Interior, Ministerio de Vivienda, Seguridad Social, Comisión Europea, Eurostat, Red Eléctrica, BOE y Junta Electoral Central. Cuando una cifra se ha tomado de un medio o de otra publicación, se cita ese medio junto al organismo que la produce. Cada serie se guarda como un archivo fijo de este panel, con título, descripción, fuente, enlace y fecha del último dato, y no se actualiza sola. No se ha estimado ningún valor: los años sin dato localizado quedan vacíos. Los únicos cálculos propios son el encadenamiento de tasas anuales oficiales para construir índices (vivienda, IPC acumulado), el paso a índice del salario y de la pensión media y el «resto» del mix eléctrico, calculado por diferencia. Las estimaciones de la OTAN se dibujan con trazo discontinuo. Los ejes empiezan en 2008 o en el primer año disponible y no marcan legislaturas ni gobiernos. Los colores de partido solo se usan en el gráfico de escaños; el resto usa colores neutros. Cuando una serie procede de una copia o de un recopilador que reproduce datos oficiales (por ejemplo, la presión fiscal de España de 2005 a 2023 o la ficha del Ageing Report), se indica en la nota del gráfico, y si no se ha podido contrastar con el organismo, se dice expresamente. Las proyecciones de gasto en pensiones se dibujan con trazo discontinuo y se etiquetan como tales. No se incluye el precio de la luz para hogares frente a la UE ni una media de encuestas: no se pudo reunir una serie completa y verificable, y en el caso de las encuestas, además, la ley prohíbe publicarlas del 24 al 29 de noviembre.</p>
 <p><b>Para votar desde el exterior.</b> El procedimiento del CERA y del voto ERTA lo explican los consulados en la web del Ministerio de Asuntos Exteriores (enlace en Fuentes).</p>
 <p><b>Cómo actualizarlo.</b> Los datos están en un archivo de Fuentes, con una fila por partido y tema. Cuando un partido publique su programa, basta con sustituir sus 16 filas y su estado en la tabla de programas.</p>
-</details>
+</details></section>
 </div>
 
 <script>
@@ -1256,6 +1264,58 @@ document.querySelectorAll('.e29-swc1').forEach(function (x) { x.style.background
 </script>
 <script>
 (function(){var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(function(){['ctx-vivienda','ctx-terminadas','ctx-paro','ctx-smi','ctx-defensa','ctx-lista-pacientes','ctx-lista-dias','ctx-inmigracion','ctx-deuda','ctx-deficit','ctx-cera-censo','ctx-cera-part','ctx-escanos','ctx-pension','ctx-gasto-pen','ctx-renovables','ctx-mix','ctx-presion'].forEach(function(n){window.dash.draw(n);});},150);});})();
+</script>
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.e29-tab'));
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('data-tab')); });
+  var redraw = function (panel) {
+    if (!window.__e29ready) return;
+    var seen = {};
+    panel.querySelectorAll('[data-draw]').forEach(function (el) { var n = el.getAttribute('data-draw'); if (!seen[n]) { seen[n] = 1; window.dash.draw(n); } });
+  };
+  var open = function (id, focus) {
+    var found = false;
+    tabs.forEach(function (t, i) {
+      var on = t.getAttribute('data-tab') === id; if (on) found = true;
+      t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
+      if (panels[i]) panels[i].hidden = !on;
+      if (on && focus) t.focus();
+      if (on) t.scrollIntoView({block: 'nearest', inline: 'nearest'});
+    });
+    if (found) { var p = document.getElementById(id); if (p) redraw(p); }
+    return found;
+  };
+  var panelOf = function (el) { for (var i = 0; i < panels.length; i++) if (panels[i] && panels[i].contains(el)) return panels[i].id; return null; };
+  var go = function (hash, scroll) {
+    var id = (hash || '').replace(/^#/, ''); if (!id) return false;
+    var el = document.getElementById(id); if (!el) return false;
+    var pid = panelOf(el); if (!pid) return false;
+    open(pid);
+    if (scroll && el.id !== pid) setTimeout(function () { el.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 60);
+    else if (scroll) { var bar = document.querySelector('.e29-tabs'); if (bar) bar.scrollIntoView({block: 'start'}); }
+    return true;
+  };
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () {
+      open(t.getAttribute('data-tab'));
+      try { history.replaceState(null, '', '#' + t.getAttribute('data-tab')); } catch (e) {}
+      var bar = document.querySelector('.e29-tabs'); if (bar && bar.getBoundingClientRect().top < 0) bar.scrollIntoView({block: 'start'});
+    });
+    t.addEventListener('keydown', function (ev) {
+      var k = ev.key, j = null;
+      if (k === 'ArrowRight') j = (i + 1) % tabs.length; else if (k === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length; else if (k === 'Home') j = 0; else if (k === 'End') j = tabs.length - 1;
+      if (j !== null) { ev.preventDefault(); open(tabs[j].getAttribute('data-tab'), true); try { history.replaceState(null, '', '#' + tabs[j].getAttribute('data-tab')); } catch (e) {} }
+    });
+  });
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href^="#"]'); if (!a) return;
+    if (go(a.getAttribute('href'), true)) { ev.preventDefault(); try { history.replaceState(null, '', a.getAttribute('href')); } catch (e) {} }
+  });
+  window.addEventListener('hashchange', function () { go(location.hash, true); });
+  window.__e29openTab = open;
+  if (location.hash) go(location.hash, false);
+})();
 </script>
 
 <div class='e29-foot'>Copia estática del dashboard «29N: qué propone cada partido, tema a tema», generada el 10 de noviembre de 2026. No se actualiza sola: puede haber programas o datos más recientes. Los datos y las fuentes están incluidos en este archivo. Incluye la sección «Datos de contexto», añadida y ampliada el 10 de noviembre de 2026.</div>
