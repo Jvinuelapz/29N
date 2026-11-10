@@ -143,13 +143,72 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 .e29-panel > h2:first-child{margin-top:var(--cds-gap-md);}
 .e29 details#metodologia-det{margin-top:0;}
 .e29-hidesum{display:none;}
+
+/* --- cabecera --- */
+.e29-hero{position:relative;overflow:hidden;border:1px solid var(--color-border-line);border-radius:16px;padding:clamp(18px,3.2vw,34px);margin-bottom:var(--cds-gap-md);
+ background:radial-gradient(120% 140% at 100% 0%,color-mix(in srgb,var(--c0) 16%,transparent) 0%,transparent 55%),linear-gradient(180deg,var(--color-panel),var(--color-bg));}
+.e29-hero::after{content:'';position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:1px solid color-mix(in srgb,var(--c0) 30%,transparent);pointer-events:none;}
+.e29-hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 14px;margin-bottom:var(--cds-gap-md);}
+.e29-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:var(--cds-font-weight-medium);color:var(--c0);}
+.e29-eyebrow-mark{width:22px;height:3px;border-radius:2px;background:var(--c0);}
+.e29-upd{font-size:12px;color:var(--color-fg-muted);border:1px solid var(--color-border-line);background:var(--color-bg);border-radius:999px;padding:3px 10px;font-variant-numeric:tabular-nums;}
+.e29 .e29-hero h1{font-size:clamp(28px,4.6vw,46px);line-height:1.08;letter-spacing:-.01em;margin:0 0 var(--cds-gap-md);max-width:22ch;}
+.e29-h1-soft{color:var(--color-fg-muted);font-style:italic;}
+.e29-hero-sub{font-size:clamp(14px,1.5vw,16px);line-height:1.5;color:var(--color-fg-muted);max-width:68ch;margin-bottom:var(--cds-gap-md);}
+.e29-hero .e29-lead{font-size:clamp(15px,1.6vw,17px);max-width:70ch;padding-left:12px;border-left:3px solid var(--c0);}
+.e29-hero .e29-lead b{color:var(--c0);}
+.e29-hero .e29-kpis{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));margin:var(--cds-gap-lg) 0 0;gap:10px;}
+.e29-hero .e29-card{background:var(--color-bg);border-radius:12px;padding:14px 16px;position:relative;}
+.e29-hero .e29-card::before{content:'';position:absolute;left:16px;top:0;width:28px;height:3px;border-radius:0 0 2px 2px;background:var(--color-border-line);}
+.e29-hero #kpi-cuenta::before{background:var(--c0);}
+.e29-hero .e29-k{font-size:clamp(26px,3.4vw,34px);}
+@media (max-width:520px){.e29-hero .e29-kpis{grid-template-columns:1fr 1fr;}.e29-hero::after{display:none;}}
+/* --- titulos de cada pestaña --- */
+.e29 .e29-panel > h2:first-child{font-family:var(--font-anthropic-serif);font-weight:400;font-size:clamp(22px,2.6vw,28px);line-height:1.2;margin:var(--cds-gap-lg) 0 6px;}
+.e29-panel > h2:first-child + .e29-sub{font-size:14px;line-height:1.5;max-width:80ch;margin-bottom:var(--cds-gap-lg);}
+/* --- barra de pestañas fija --- */
+.e29-tabs-sentinel{height:1px;}
+.e29-tabs{margin:0 -18px;padding:10px 18px;transition:box-shadow .2s;}
+.e29-tabs.e29-stuck{box-shadow:0 6px 14px -10px rgba(0,0,0,.35);}
+.e29-panel [id]{scroll-margin-top:72px;}
+/* --- ficha por partido --- */
+.e29-fpick{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:var(--cds-gap-lg);}
+.e29-fchip{font:inherit;font-size:var(--cds-font-size-caption);display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--color-border-line);border-radius:999px;background:var(--color-bg);color:var(--color-fg);cursor:pointer;}
+.e29-fchip:hover{border-color:var(--color-fg-muted);}
+.e29-fchip[aria-checked=true]{border-color:var(--color-fg);box-shadow:inset 0 0 0 1px var(--color-fg);font-weight:var(--cds-font-weight-medium);}
+.e29-fchip .e29-dot{margin:0;}
+.e29-fhead{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:var(--cds-gap-lg);background:var(--color-panel);border:1px solid var(--color-border-line);border-top:5px solid var(--color-border-line);border-radius:12px;padding:var(--cds-gap-lg);}
+@media (max-width:760px){.e29-fhead{grid-template-columns:1fr;}}
+.e29 h3.e29-fname{font-weight:400;font-family:var(--font-anthropic-serif);font-size:clamp(26px,3.4vw,34px);line-height:1.1;margin:0 0 4px;}
+.e29-fcand{color:var(--color-fg-muted);margin:0 0 var(--cds-gap-md);}
+.e29-fprog{font-size:var(--cds-font-size-caption);line-height:1.5;}
+.e29-fprog .e29-tag{font-size:12px;margin-right:6px;color:var(--color-fg);}
+.e29-fprog .e29-pub{background:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg);}
+.e29-fstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-content:start;}
+.e29-fstat{background:var(--color-bg);border:1px solid var(--color-border-line);border-radius:10px;padding:10px 12px;}
+.e29-fstat b{display:block;font-family:var(--font-anthropic-serif);font-weight:400;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums;}
+.e29-fstat span{font-size:12px;color:var(--color-fg-muted);display:flex;align-items:center;gap:5px;}
+.e29-fbar{grid-column:1/-1;display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--cds-chart-grid);}
+.e29-fbar i{display:block;height:100%;}
+.e29-fnote{grid-column:1/-1;font-size:12px;color:var(--color-fg-muted);margin:0;}
+.e29-ftools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:var(--cds-gap-lg) 0 var(--cds-gap-sm);}
+.e29-fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:var(--cds-gap-sm);}
+.e29-ftopic{background:var(--color-bg);border:1px solid var(--color-border-line);border-radius:10px;padding:var(--cds-pad-md) var(--cds-pad-lg);display:flex;flex-direction:column;gap:6px;}
+.e29-ftopic h3{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0;}
+.e29-ftopic p{margin:0;line-height:1.45;}
+.e29-ftopic ul{margin:0;padding-left:18px;font-size:var(--cds-font-size-caption);line-height:1.45;}
+.e29-ftopic .e29-src{margin-top:auto;padding-top:4px;}
+.e29-ftopic.e29-fnone{background:var(--color-panel);}
+.e29-ftopic.e29-fnone p{color:var(--color-fg-muted);font-style:italic;font-size:var(--cds-font-size-caption);}
+.e29-flevel{font-size:11px;font-weight:400;display:inline-flex;align-items:center;gap:4px;color:var(--color-fg-muted);white-space:nowrap;}
 [data-dash-source-state=refreshing]{opacity:.5;}
 </style>
 
 <div class='e29'>
-<header id='cabecera'>
-<h1>Elecciones generales del 29N: qué propone cada partido, tema a tema</h1>
-<p class='e29-sub'>Posiciones y propuestas de 12 partidos en 16 temas, a la espera de que se publiquen la mayoría de programas. Cada celda indica de dónde sale (programa, documento, declaración o votación) y enlaza a sus fuentes. Actualizado el <span data-draw='updated' data-source='meta' data-field='updated' data-row='0'>—</span>.</p>
+<header id='cabecera' class='e29-hero'>
+<div class='e29-hero-top'><span class='e29-eyebrow'><span class='e29-eyebrow-mark' aria-hidden='true'></span>Elecciones generales · 29 de noviembre de 2026</span><span class='e29-upd'>Actualizado el <span data-draw='updated' data-source='meta' data-field='updated' data-row='0'>—</span></span></div>
+<h1>Qué propone cada partido, <span class='e29-h1-soft'>tema a tema</span></h1>
+<p class='e29-sub e29-hero-sub'>Posiciones y propuestas de 12 partidos en 16 temas, mientras se publican los programas. Cada posición indica de dónde sale (programa, documento, declaración o votación) y enlaza a sus fuentes.</p>
 <p class='e29-lead' id='resumen'><b data-draw='sum' data-source='summary' data-field='publicados' data-row='0'>—</b> de los <b data-draw='sum' data-source='summary' data-field='partidos' data-row='0'>—</b> partidos han publicado ya su programa para el 29N. De las <b data-draw='sum' data-source='summary' data-field='celdas' data-row='0'>—</b> combinaciones de partido y tema, <b data-draw='sum' data-source='summary' data-field='concretas' data-row='0'>—</b> recogen alguna medida concreta, <b data-draw='sum' data-source='summary' data-field='generales' data-row='0'>—</b> solo una orientación general y en <b data-draw='sum' data-source='summary' data-field='sin' data-row='0'>—</b> no hay posición conocida en las fuentes consultadas.</p>
 <div class='e29-kpis'>
 <div class='e29-card' id='kpi-cuenta'><div class='e29-k' data-draw='countdown'>—</div><div class='e29-kl'>días para la votación (domingo 29 de noviembre de 2026)</div></div>
@@ -157,8 +216,10 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 <div class='e29-card' id='kpi-programas'><div class='e29-k'><span data-draw='sum' data-source='summary' data-field='publicados' data-row='0'>—</span> / <span data-draw='sum' data-source='summary' data-field='partidos' data-row='0'>—</span></div><div class='e29-kl'>programas 29N publicados</div></div>
 <div class='e29-card' id='kpi-fuentes'><div class='e29-k' data-draw='sum' data-source='summary' data-field='fuentes' data-row='0'>—</div><div class='e29-kl'>fuentes enlazadas</div></div>
 </div>
-<div class='e29-tabs' role='tablist' aria-label='Secciones del panel'><button type='button' class='e29-tab' role='tab' id='tab-programas' data-tab='programas' aria-controls='programas' aria-selected='true' tabindex='0'>Programas</button><button type='button' class='e29-tab' role='tab' id='tab-situacion' data-tab='situacion' aria-controls='situacion' aria-selected='false' tabindex='-1'>Situación actual</button><button type='button' class='e29-tab' role='tab' id='tab-contexto' data-tab='contexto' aria-controls='contexto' aria-selected='false' tabindex='-1'>Datos de contexto</button><button type='button' class='e29-tab' role='tab' id='tab-matriz' data-tab='matriz' aria-controls='matriz' aria-selected='false' tabindex='-1'>Matriz</button><button type='button' class='e29-tab' role='tab' id='tab-comparar' data-tab='comparar' aria-controls='comparar' aria-selected='false' tabindex='-1'>Comparar</button><button type='button' class='e29-tab' role='tab' id='tab-cobertura' data-tab='cobertura' aria-controls='cobertura' aria-selected='false' tabindex='-1'>Cobertura</button><button type='button' class='e29-tab' role='tab' id='tab-acuerdos' data-tab='acuerdos' aria-controls='acuerdos' aria-selected='false' tabindex='-1'>Acuerdos y desacuerdos</button><button type='button' class='e29-tab' role='tab' id='tab-fuentes' data-tab='fuentes' aria-controls='fuentes' aria-selected='false' tabindex='-1'>Fuentes</button><button type='button' class='e29-tab' role='tab' id='tab-metodologia' data-tab='metodologia' aria-controls='metodologia' aria-selected='false' tabindex='-1'>Metodología</button></div>
+
 </header>
+<div class='e29-tabs-sentinel' aria-hidden='true'></div>
+<div class='e29-tabs' role='tablist' aria-label='Secciones del panel'><button type='button' class='e29-tab' role='tab' id='tab-programas' data-tab='programas' aria-controls='programas' aria-selected='true' tabindex='0'>Programas</button><button type='button' class='e29-tab' role='tab' id='tab-ficha' data-tab='ficha' aria-controls='ficha' aria-selected='false' tabindex='-1'>Ficha por partido</button><button type='button' class='e29-tab' role='tab' id='tab-situacion' data-tab='situacion' aria-controls='situacion' aria-selected='false' tabindex='-1'>Situación actual</button><button type='button' class='e29-tab' role='tab' id='tab-contexto' data-tab='contexto' aria-controls='contexto' aria-selected='false' tabindex='-1'>Datos de contexto</button><button type='button' class='e29-tab' role='tab' id='tab-matriz' data-tab='matriz' aria-controls='matriz' aria-selected='false' tabindex='-1'>Matriz</button><button type='button' class='e29-tab' role='tab' id='tab-comparar' data-tab='comparar' aria-controls='comparar' aria-selected='false' tabindex='-1'>Comparar</button><button type='button' class='e29-tab' role='tab' id='tab-cobertura' data-tab='cobertura' aria-controls='cobertura' aria-selected='false' tabindex='-1'>Cobertura</button><button type='button' class='e29-tab' role='tab' id='tab-acuerdos' data-tab='acuerdos' aria-controls='acuerdos' aria-selected='false' tabindex='-1'>Acuerdos y desacuerdos</button><button type='button' class='e29-tab' role='tab' id='tab-fuentes' data-tab='fuentes' aria-controls='fuentes' aria-selected='false' tabindex='-1'>Fuentes</button><button type='button' class='e29-tab' role='tab' id='tab-metodologia' data-tab='metodologia' aria-controls='metodologia' aria-selected='false' tabindex='-1'>Metodología</button></div>
 
 <section id='programas' class='e29-panel' role='tabpanel' aria-labelledby='tab-programas'>
 <h2>Estado de los programas</h2>
@@ -171,6 +232,12 @@ var t=null;window.addEventListener('resize',function(){clearTimeout(t);t=setTime
 </div>
 </section>
 
+<section id='ficha' class='e29-panel' role='tabpanel' aria-labelledby='tab-ficha' hidden>
+<h2>Ficha por partido</h2>
+<p class='e29-sub'>Todo lo documentado de un partido en una sola vista: estado del programa y su posición en los 16 temas, con el origen y las fuentes de cada una. Los partidos aparecen en el mismo orden fijo que en el resto del panel.</p>
+<div class='e29-fpick' role='radiogroup' aria-label='Elige un partido' data-draw='ficha-pick' data-source='parties'></div>
+<div class='e29-ficha' data-draw='ficha' data-source='cells'>—</div>
+</section>
 <section id='situacion' class='e29-panel' role='tabpanel' aria-labelledby='tab-situacion' hidden>
 <h2>Situación actual de cada tema</h2>
 <p class='e29-sub'>Qué está en vigor hoy, qué ha hecho el Gobierno de coalición PSOE–Sumar y algún dato de referencia, para comparar con lo que propone cada partido. Es descriptivo: no valora la gestión. Las Cortes están disueltas desde el 5 de octubre, así que las iniciativas que estaban en tramitación han quedado sin aprobar.</p>
@@ -1286,6 +1353,9 @@ document.querySelectorAll('.e29-swc1').forEach(function (x) { x.style.background
     if (found) { var p = document.getElementById(id); if (p) redraw(p); }
     return found;
   };
+  var sentinel = document.querySelector('.e29-tabs-sentinel'), barEl = document.querySelector('.e29-tabs');
+  var toTop = function () { if (!sentinel) return; var y = sentinel.getBoundingClientRect().top + window.scrollY; if (window.scrollY > y) window.scrollTo(0, y); };
+  if (sentinel && barEl && 'IntersectionObserver' in window) new IntersectionObserver(function (en) { barEl.classList.toggle('e29-stuck', !en[0].isIntersecting); }).observe(sentinel);
   var panelOf = function (el) { for (var i = 0; i < panels.length; i++) if (panels[i] && panels[i].contains(el)) return panels[i].id; return null; };
   var go = function (hash, scroll) {
     var id = (hash || '').replace(/^#/, ''); if (!id) return false;
@@ -1293,14 +1363,14 @@ document.querySelectorAll('.e29-swc1').forEach(function (x) { x.style.background
     var pid = panelOf(el); if (!pid) return false;
     open(pid);
     if (scroll && el.id !== pid) setTimeout(function () { el.scrollIntoView({behavior: 'smooth', block: 'start'}); }, 60);
-    else if (scroll) { var bar = document.querySelector('.e29-tabs'); if (bar) bar.scrollIntoView({block: 'start'}); }
+    else if (scroll) toTop();
     return true;
   };
   tabs.forEach(function (t, i) {
     t.addEventListener('click', function () {
       open(t.getAttribute('data-tab'));
       try { history.replaceState(null, '', '#' + t.getAttribute('data-tab')); } catch (e) {}
-      var bar = document.querySelector('.e29-tabs'); if (bar && bar.getBoundingClientRect().top < 0) bar.scrollIntoView({block: 'start'});
+      toTop();
     });
     t.addEventListener('keydown', function (ev) {
       var k = ev.key, j = null;
@@ -1314,12 +1384,93 @@ document.querySelectorAll('.e29-swc1').forEach(function (x) { x.style.background
   });
   window.addEventListener('hashchange', function () { go(location.hash, true); });
   window.__e29openTab = open;
+  var goFicha = function (hash) { var m = /^#ficha-(.+)$/.exec(hash || ''); if (!m) return false; window.E29FICHA = decodeURIComponent(m[1]); open('ficha'); return true; };
+  window.addEventListener('hashchange', function () { goFicha(location.hash); });
+  if (goFicha(location.hash)) return;
   if (location.hash) go(location.hash, false);
 })();
 </script>
 
 <div class='e29-foot'>Copia estática del dashboard «29N: qué propone cada partido, tema a tema», generada el 10 de noviembre de 2026. No se actualiza sola: puede haber programas o datos más recientes. Los datos y las fuentes están incluidos en este archivo. Incluye la sección «Datos de contexto», añadida y ampliada el 10 de noviembre de 2026.</div>
 </div>
+<script>
+(function () {
+  var D = window.dash;
+  var LV = [['Medida concreta', 'var(--c0)', 'con medida concreta'], ['Orientación general', 'var(--c1)', 'solo orientación general'], ['Sin posición conocida', 'var(--cds-chart-muted)', 'sin posición conocida']];
+  var el = function (tag, cls, txt) { var x = document.createElement(tag); if (cls) x.className = cls; if (txt != null) x.textContent = txt; return x; };
+  var sw = function (c) { var s = el('span', 'e29-sw'); s.style.background = c; s.style.margin = '0'; return s; };
+  window.E29FICHA = window.E29FICHA || null;
+  window.E29FICHAONLY = false;
+  var current = function () { var ps = D.data('parties').data || []; if (!ps.some(function (p) { return p.id === window.E29FICHA; })) window.E29FICHA = ps.length ? ps[0].id : null; return window.E29FICHA; };
+  var setParty = function (id) { window.E29FICHA = id; try { history.replaceState(null, '', '#ficha-' + encodeURIComponent(id)); } catch (e) {} D.draw('ficha-pick'); D.draw('ficha'); };
+
+  D.draw('ficha-pick', function (box) {
+    var ps = D.data('parties'); box.replaceChildren(); if (ps.status !== 'ok') return;
+    var cur = current(), btns = [];
+    ps.data.forEach(function (p, i) {
+      var b = el('button', 'e29-fchip'); b.type = 'button'; b.setAttribute('role', 'radio');
+      b.setAttribute('aria-checked', p.id === cur ? 'true' : 'false'); b.tabIndex = p.id === cur ? 0 : -1;
+      var d = el('span', 'e29-dot'); d.style.background = p.color; b.appendChild(d); b.appendChild(document.createTextNode(p.name));
+      b.onclick = function () { setParty(p.id); };
+      b.onkeydown = function (ev) { var k = ev.key, j = null; if (k === 'ArrowRight' || k === 'ArrowDown') j = (i + 1) % ps.data.length; else if (k === 'ArrowLeft' || k === 'ArrowUp') j = (i - 1 + ps.data.length) % ps.data.length;
+        if (j !== null) { ev.preventDefault(); setParty(ps.data[j].id); var nb = box.querySelectorAll('.e29-fchip')[j]; if (nb) nb.focus(); } };
+      btns.push(b); box.appendChild(b);
+    });
+  });
+
+  D.draw('ficha', function (box) {
+    var c = D.data('cells'), ps = D.data('parties'), ts = D.data('topics');
+    if (c.status !== 'ok' || ps.status !== 'ok' || ts.status !== 'ok') { box.textContent = 'No hay datos disponibles.'; return; }
+    var id = current(), p = ps.data.filter(function (x) { return x.id === id; })[0]; if (!p) { box.textContent = '—'; return; }
+    var by = {}; c.data.forEach(function (x) { if (x.p === id) by[x.t] = x; });
+    box.replaceChildren();
+    // cabecera de la ficha
+    var head = el('div', 'e29-fhead'); head.style.borderTopColor = p.color;
+    var left = el('div');
+    left.appendChild(el('h3', 'e29-fname', p.name));
+    left.appendChild(el('p', 'e29-fcand', p.cand && p.cand !== '—' ? 'Candidato/a a la presidencia: ' + p.cand : 'Candidato/a a la presidencia: sin candidatura propia o no comunicada'));
+    var pr = el('div', 'e29-fprog');
+    var tag = el('span', 'e29-tag' + (p.prog === 'Publicado' ? ' e29-pub' : ''), 'Programa 29N: ' + (p.prog || '—')); pr.appendChild(tag);
+    if (p.prognote) pr.appendChild(document.createTextNode(p.prognote + (p.progdate ? ' (' + p.progdate + ')' : '')));
+    var ls = window.e29arr(p.progsrc);
+    if (ls.length) { var sdiv = el('div', 'e29-src'); sdiv.appendChild(document.createTextNode('Fuentes: ')); ls.forEach(function (s, i) { if (i) sdiv.appendChild(document.createTextNode(' · ')); sdiv.appendChild(window.e29link(s)); }); pr.appendChild(sdiv); }
+    left.appendChild(pr); head.appendChild(left);
+    var right = el('div', 'e29-fstats');
+    var n = ts.data.length, cnt = LV.map(function (l) { return ts.data.filter(function (t) { var x = by[t.id]; return (x ? x.conc : 'Sin posición conocida') === l[0]; }).length; });
+    LV.forEach(function (l, i) { var s = el('div', 'e29-fstat'); s.appendChild(el('b', null, String(cnt[i]))); var lab = el('span'); lab.appendChild(sw(l[1])); lab.appendChild(document.createTextNode(l[2])); s.appendChild(lab); right.appendChild(s); });
+    var bar = el('div', 'e29-fbar'); bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', LV.map(function (l, i) { return cnt[i] + ' de ' + n + ' temas ' + l[2]; }).join('; '));
+    LV.forEach(function (l, i) { var seg = el('i'); seg.style.width = (100 * cnt[i] / n) + '%'; seg.style.background = l[1]; seg.title = cnt[i] + ' temas ' + l[2]; bar.appendChild(seg); });
+    right.appendChild(bar);
+    right.appendChild(el('p', 'e29-fnote', 'De ' + n + ' temas. Mide cuánto hay documentado en las fuentes consultadas, no su posición ideológica.'));
+    head.appendChild(right); box.appendChild(head);
+    // herramientas
+    var tools = el('div', 'e29-ftools');
+    var only = el('button', 'e29-btn', 'Ocultar temas sin posición conocida'); only.type = 'button'; only.setAttribute('aria-pressed', window.E29FICHAONLY ? 'true' : 'false');
+    only.onclick = function () { window.E29FICHAONLY = !window.E29FICHAONLY; D.draw('ficha'); };
+    tools.appendChild(only);
+    var lg = el('span', 'e29-legend'); lg.style.margin = '0';
+    LV.forEach(function (l) { var s = el('span'); s.appendChild(sw(l[1])); s.appendChild(document.createTextNode(' ' + l[0])); s.style.display = 'inline-flex'; s.style.alignItems = 'center'; s.style.gap = '4px'; lg.appendChild(s); });
+    tools.appendChild(lg); box.appendChild(tools);
+    // temas
+    var grid = el('div', 'e29-fgrid');
+    ts.data.forEach(function (t) {
+      var x = by[t.id] || { conc: 'Sin posición conocida', props: [], sources: [] };
+      var none = x.conc === 'Sin posición conocida' || !x.pos;
+      if (none && window.E29FICHAONLY) return;
+      var lv = LV.filter(function (l) { return l[0] === x.conc; })[0] || LV[2];
+      var card = el('article', 'e29-ftopic' + (none ? ' e29-fnone' : ''));
+      var h = el('h3'); h.appendChild(el('span', null, t.name)); var lvl = el('span', 'e29-flevel'); lvl.appendChild(sw(lv[1])); lvl.appendChild(document.createTextNode(x.conc)); h.appendChild(lvl); card.appendChild(h);
+      if (none) { card.appendChild(el('p', null, 'No hay posición conocida en las fuentes consultadas.')); grid.appendChild(card); return; }
+      card.appendChild(el('p', null, x.pos));
+      var props = window.e29arr(x.props); if (props.length) { var ul = el('ul'); props.forEach(function (q) { ul.appendChild(el('li', null, q)); }); card.appendChild(ul); }
+      var meta = el('div', 'e29-meta'); if (x.orig) meta.appendChild(el('span', 'e29-tag', x.orig)); if (x.fecha) meta.appendChild(el('span', 'e29-tag', x.fecha)); if (meta.childNodes.length) card.appendChild(meta);
+      var src = window.e29arr(x.sources); if (src.length) { var sd = el('div', 'e29-src'); sd.appendChild(document.createTextNode('Fuentes: ')); src.forEach(function (s, i) { if (i) sd.appendChild(document.createTextNode(' · ')); sd.appendChild(window.e29link(s)); }); card.appendChild(sd); }
+      grid.appendChild(card);
+    });
+    box.appendChild(grid);
+  });
+})();
+</script>
 <script>window.__e29all();</script>
 </body>
 </html>
